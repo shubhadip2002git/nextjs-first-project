@@ -1,5 +1,4 @@
 import { createPost } from "@/actions/actions";
-import React from "react";
 
 export default function Form() {
   return (
@@ -21,7 +20,7 @@ export default function Form() {
         rows={6}
         required
       />
-      <button className="h-10 bg-blue-500 px-5 rounded text-white">
+      <button className="h-10 bg-blue-500 px-5 rounded text-white cursor-pointer" >
         Submit
       </button>
     </form>

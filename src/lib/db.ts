@@ -2,7 +2,7 @@ import { PrismaClient } from "@/generated/prisma";
 
 
 const prismaClientSingleton = () => {
-  return new PrismaClient;
+  return new PrismaClient();
 };
 
 declare const globalThis: {
