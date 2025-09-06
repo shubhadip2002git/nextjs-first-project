@@ -8,16 +8,16 @@ generator client {
 
 //for vercel
 
-// datasource db {
-//   provider  = "postgresql"
-//   url  	    = env("DATABASE_URL")
-// }
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+}
 
 //for localhost
-datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
-}
+// datasource db {
+//   provider = "sqlite"
+//   url      = env("DATABASE_URL")
+// }
 
 model Post {
   id        Int      @id @default(autoincrement())
