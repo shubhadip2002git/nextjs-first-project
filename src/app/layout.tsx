@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import '@mantine/core/styles.css'
+import "@mantine/core/styles.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import {
@@ -31,9 +31,8 @@ export default function RootLayout({
     <html lang="en" {...mantineHtmlProps}>
       <head>
         <ColorSchemeScript />
-        {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
       </head>
-      <body style={{ background: "#f5f4f4"}}>
+      <body style={{ background: "#f5f4f4" }}>
         <MantineProvider>
           <Container
             maw={1100}
