@@ -1,13 +1,18 @@
 import PostsList from "@/components/posts-list";
+import { Container, Loader, Title } from "@mantine/core";
+import { Metadata } from "next";
 import { Suspense } from "react";
 
+export const metadata: Metadata = {
+  title: "All Posts",
+}
 export default async function Posts() {
   return (
-    <main className="text-center pt-16 px-5">
-      <h1 className="text-4xl md:text-5xl font-bold mb-5">All posts</h1>
-      <Suspense fallback="Loading...">
+    <Container ta={"center"} pt={"2rem"} >
+      <Title size={50} mb={15}>All posts</Title>
+      <Suspense fallback={<Loader/>}>
         <PostsList />
       </Suspense>
-    </main>
+    </Container>
   );
 }

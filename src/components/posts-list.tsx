@@ -1,4 +1,5 @@
 import prisma from "@/lib/db";
+import { Box, List, ListItem, ScrollArea } from "@mantine/core";
 import Link from "next/link";
 
 export default async function PostsList() {
@@ -6,12 +7,21 @@ export default async function PostsList() {
   const posts = await prisma.post.findMany();
 
   return (
-    <ul>
-      {posts.map((post) => (
-        <li key={post.id} className="mb-3">
-          <Link href={`/posts/${post.id}`}>{post.title}</Link>
-        </li>
-      ))}
-    </ul>
+    <Box mx={"auto"} mah={"65vh"}>
+      <ScrollArea h={"63vh"} pt={"xs"} offsetScrollbars>
+        <List listStyleType="none" size="lg">
+          {posts.map((post) => (
+            <ListItem key={post.id} mb={7}>
+              <Link
+                href={`/posts/${post.id}`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                {post.title}
+              </Link>
+            </ListItem>
+          ))}
+        </List>
+      </ScrollArea>
+    </Box>
   );
 }

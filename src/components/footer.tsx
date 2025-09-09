@@ -1,5 +1,11 @@
-export default function Footer(){
-  return <footer className="mt-auto text-center text-zinc-400 py-5 px-7 border-t">
-    <small>&copy; 2025. All rights reserved</small>
-  </footer>
+import { Box, Text } from "@mantine/core";
+
+export default function Footer() {
+  return (
+    <Box h="100%" style={{ borderTop: "1px solid #9f9fa9" }} pt={20}>
+      <Text size="sm" c="dimmed" ta="center">
+        &copy; 2025. All rights reserved
+      </Text>
+    </Box>
+  );
 }
