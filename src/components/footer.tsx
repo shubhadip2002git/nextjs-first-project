@@ -1,11 +1,25 @@
-import { Box, Text } from "@mantine/core";
+import { Box, Center, Text } from "@mantine/core";
 
 export default function Footer() {
   return (
-    <Box h="100%" style={{ borderTop: "1px solid #9f9fa9" }} pt={20}>
-      <Text size="sm" c="dimmed" ta="center">
-        &copy; 2025. All rights reserved
-      </Text>
-    </Box>
+    <Center h={"100%"} bg={"var(--mantine-color-gray-light)"} m={0}>
+      <Box
+        w={1100}
+        h={"100%"}
+        p="lg"
+        mx="auto"
+        style={{
+          borderTop: "1px solid #9f9fa9",
+          borderRight: "1px solid black",
+          borderLeft: "1px solid black",
+          borderBottom: "1px solid #9f9fa9",
+        }}
+        bg={"var(--mantine-color-white)"}
+      >
+        <Text size="sm" c="dimmed" ta="center">
+          &copy; 2025. All rights reserved
+        </Text>
+      </Box>
+    </Center>
   );
 }

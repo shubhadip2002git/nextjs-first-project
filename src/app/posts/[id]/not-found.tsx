@@ -1,4 +1,4 @@
-import { Container } from "@mantine/core";
+import { Box, Text } from "@mantine/core";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function NotFound() {
-  return <Container>No post found for that id.</Container>;
+  return (
+    <Box>
+      <Text c={"red"} ta={"center"} size="xl"> No post found for that id.</Text>
+    </Box>
+  );
 }

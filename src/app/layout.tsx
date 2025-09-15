@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
 import "@mantine/core/styles.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 import {
-  Container,
   ColorSchemeScript,
   MantineProvider,
   mantineHtmlProps,
-  AppShell,
-  AppShellMain,
-  AppShellHeader,
-  AppShellFooter,
 } from "@mantine/core";
+import { AppShellContainer } from "@/components/AppShellContainer";
+import StoreProvider from "./storeProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -32,30 +27,11 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript />
       </head>
-      <body style={{ background: "#f5f4f4" }}>
+      <body style={{ background: "var(--mantine-color-gray-light)" }}>
         <MantineProvider>
-          <Container
-            maw={1100}
-            mih="100vh"
-            pos={"relative"}
-            bg={"var(--mantine-color-white)"}
-            style={{
-              borderRight: "1px solid black",
-              borderLeft: "1px solid black",
-            }}
-          >
-            <AppShell header={{ height: 65 }} footer={{ height: 65 }} h="100%">
-              <AppShellHeader pos={"absolute"}>
-                <Header />
-              </AppShellHeader>
-
-              <AppShellMain>{children}</AppShellMain>
-
-              <AppShellFooter pos={"absolute"}>
-                <Footer />
-              </AppShellFooter>
-            </AppShell>
-          </Container>
+          <StoreProvider>
+            <AppShellContainer>{children}</AppShellContainer>
+          </StoreProvider>
         </MantineProvider>
       </body>
     </html>

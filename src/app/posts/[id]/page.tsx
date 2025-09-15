@@ -1,7 +1,6 @@
 import prisma from "@/lib/db";
-import { Box, Container, ScrollArea, Text, Title } from "@mantine/core";
+import { Box, Text, Title, Stack } from "@mantine/core";
 import { notFound } from "next/navigation";
-
 
 export default async function Page({
   params,
@@ -19,13 +18,15 @@ export default async function Page({
   }
 
   return (
-    <Container px={28} pt={"3rem"} ta={"center"}>
-      <Title mb={10} size={50} fw={600}>{post.title}</Title>
-      <Box maw={760} mx={"auto"} mah={"65vh"}>
-            <ScrollArea h={"63vh"} pt={"xs"} offsetScrollbars>
-      <Text maw={700} mx={"auto"} >{post.body}</Text>
-      </ScrollArea>
+    <Stack align="center" justify="center" gap="md">
+      <Box maw={760} ta={"center"}>
+        <Title size="3rem">{post.title}</Title>
       </Box>
-    </Container>
+      <Box maw={760}>
+        <Text ta={"center"} size="lg" mt={"xs"}>
+          {post.body}
+        </Text>
+      </Box>
+    </Stack>
   );
 }
