@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import postsReducer from './features/form/formSlice'
+import postsReducer from "./features/post/postFormSlice";
+import commentsReducer from "./features/comments/CommentsSlice";
+import commentReducer from "./features/comment/commentFormSlice";
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      posts: postsReducer,
+      postsState: postsReducer,
+      commentsState: commentsReducer,
+      commentState: commentReducer,
     },
   });
 };

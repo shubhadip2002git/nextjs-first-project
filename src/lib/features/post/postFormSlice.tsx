@@ -2,8 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "@/lib/store.ts";
 import { createPost, postData } from "@/actions/actions";
 
-export const formSlice = createSlice({
-  name: "posts",
+const formSlice = createSlice({
+  name: "postsState",
   initialState: [] as postData[],
   reducers: {
     addNewPost: (state: postData[], action: PayloadAction<postData>) => {
@@ -16,6 +16,6 @@ export const formSlice = createSlice({
 
 export const { addNewPost } = formSlice.actions;
 
-export const selectPost = (state: RootState) => state.posts;
+export const selectPost = (state: RootState) => state.postsState;
 
 export default formSlice.reducer;

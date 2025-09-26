@@ -1,4 +1,3 @@
-
 import { Box, Stack, Text, Title } from "@mantine/core";
 
 export default function Home() {

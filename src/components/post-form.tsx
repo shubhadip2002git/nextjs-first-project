@@ -8,7 +8,7 @@ import {
   TextInput,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { addNewPost } from "@/lib/features/form/formSlice";
+import { addNewPost } from "@/lib/features/post/postFormSlice";
 import { postData } from "@/actions/actions";
 import { useAppDispatch } from "@/lib/hooks";
 

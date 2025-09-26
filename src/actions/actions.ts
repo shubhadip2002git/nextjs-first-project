@@ -10,6 +10,11 @@ export interface postData {
   body: string;
 }
 
+export interface commentData {
+  postId: number;
+  text: string;
+}
+
 export async function createPost(newPost: postData) {
   const { isAuthenticated } = getKindeServerSession();
   if (!(await isAuthenticated())) {
@@ -27,5 +32,27 @@ export async function createPost(newPost: postData) {
   });
 
   revalidatePath("/posts");
-  // redirect("/posts");
+}
+
+export async function createComment(newComment: commentData) {
+  const text = newComment.text;
+  const postId = newComment.postId;
+  if (text.length >= 2) {
+    await prisma.comment.create({
+      data: {
+        text: text,
+        post: { connect: { id: postId } },
+      },
+    });
+    return text;
+  } else throw Error("comment length must be grater or equal to 2");
+}
+
+export async function fetchCommentsFromPrisma(postId: string) {
+  const response = await prisma.comment.findMany({
+    where: { postId: parseInt(postId) },
+    orderBy: { createdAt: "asc" },
+  });
+  const data = response.map((e) => e.text);
+  return data;
 }

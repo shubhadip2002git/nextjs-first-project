@@ -1,15 +1,21 @@
 import prisma from "@/lib/db";
-import { Box, List, ListItem, Text } from "@mantine/core";
+import { Box, List, ListItem, Text, Title } from "@mantine/core";
 import Link from "next/link";
 
 export default async function PostsList() {
-  // await new Promise((resolve) => setTimeout(resolve, 1000));
   const posts = await prisma.post.findMany();
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
 
-  return (
+  return posts.length === 0 ? (
+    <Box>
+      <Title order={1} c={"gray"}>
+        There is No Posts
+      </Title>{" "}
+    </Box>
+  ) : (
     <List size="lg" type="ordered" withPadding>
-      {posts.map((post) => (
-        <ListItem key={post.id}>
+      {posts.map((post, ind) => (
+        <ListItem key={ind}>
           <Box p={5}>
             <Link
               href={`/posts/${post.id}`}

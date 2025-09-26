@@ -1,6 +1,6 @@
 // "use client";
 import type { Metadata } from "next";
-import Form from "@/components/form";
+import Form from "@/components/post-form";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { Box, Button, Stack, Title } from "@mantine/core";
 

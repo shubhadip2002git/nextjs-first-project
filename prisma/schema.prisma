@@ -8,21 +8,31 @@ generator client {
 
 //for vercel
 
-datasource db {
-  provider  = "postgresql"
-  url  	    = env("DATABASE_URL")
-}
-
-//for localhost
 // datasource db {
-//   provider = "sqlite"
-//   url      = env("DATABASE_URL")
+//   provider  = "postgresql"
+//   url  	    = env("DATABASE_URL")
 // }
 
+// for localhost
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
 model Post {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   title     String
   body      String
+  comments  Comment[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  text      String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    Int
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
