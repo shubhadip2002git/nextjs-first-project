@@ -1,5 +1,5 @@
 import { Box, Stack, Text, Title } from "@mantine/core";
-
+//temp line add
 export default function Home() {
   return (
     <Stack align="center" justify="center" gap="md">
